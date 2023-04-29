@@ -57,6 +57,11 @@ const dashboardRoutes = require("./routes/dashboard");
 const MobileRoutes = require("./routes/mobile");
 
 app.use(cors());
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Credentials', 'true');
+    next();
+});
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(Logger)
